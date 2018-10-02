@@ -7,17 +7,18 @@ start the json server initailly using
    
    
    
-   npm i -g json-server
+  $ npm i -g json-server
    
    
-	
-   json-server --watch db.json
+
+
+  $ json-server --watch db.json
    
    
 
 to Run project
 
-   npm install
+   $ npm install
    
    
-   npm start
+   $ npm start
