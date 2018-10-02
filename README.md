@@ -9,9 +9,6 @@ start the json server initailly using
    
       $ npm i -g json-server
    
-   
-
-
       $ json-server --watch db.json
    
    
@@ -19,6 +16,5 @@ start the json server initailly using
 to Run project
 
       $ npm install
-   
    
       $ npm start
