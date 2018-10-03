@@ -2,30 +2,31 @@ import React from 'react'
 
 
 var headers = [ "s.no","name","Phone"];
-const Table = (rowData) =>{
-    console.log(rowData);
+
+const TableHead = (rowData) =>{
+    console.log("props in table",rowData);
     return(
         <div className = "t_header">
             <div className = "r_column">
             {headers.map((number) => <label className="r_head">{number}</label>)} 
             {/* <label> phone </label> */}
             </div>
-            <Row data = {rowData}/>
+            <Row values = {rowData}/>
         </div>
     )
 }
 
-const Row = (values)=>{
-    var patient_data = values.data;
-    var c =Object.values(patient_data);
-    var b = c[0];
+const Row = (info)=>{
+    console.log("props in row",info);
+    var patient_data = info.values.data.data;
+    console.log(patient_data);
     return(
     <div id = "main">
         {patient_data.map((i ,index) => <div id ={"r"+index} className = "r1_column">
          {Object.values(i).map((values, index) =>
              <label className = "r_data">{values}</label>)}
              <img src = "view.png" width = "30px" alt = "view" onClick={(event) => {onView(event ,index)}}></img>
-             <img src = "update.png" width = "30px" alt = "update" onClick={(event) => {onUpdate(event ,index)}}></img>
+             <img src = "update.png" width = "30px" alt = "update" onClick={(event) => {onUpdate(event ,index,info.values.data)}}></img>
 
         </div>)}
     </div>
@@ -34,8 +35,10 @@ const Row = (values)=>{
 
 const set = new Set();
 
-function onUpdate(event,index){
-    console.log("update called");
+function onUpdate(event,index,prop){
+    console.log("update called",prop);
+    prop.update(index);
+
 }
 
 function onView(event ,index){
@@ -65,11 +68,27 @@ function onView(event ,index){
             id.removeChild(id.childNodes[5]);
             id.style.height ="40px";
         }
+    }
 
+class Table extends React.Component{
+    constructor(props){
+        super(props);
+        this.props =props;
+        console.log("table component called",this.props);
+        this.state = {
+            props : this.props
+        }
 
+    }
+    render(){
+        return(
+            <TableHead data = {this.props}/>
+        )
+    }
+}
         
           
-}
+
     
 
 

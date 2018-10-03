@@ -17,9 +17,10 @@ const url = "http://localhost:3000/patients";
 
 login = () => {
     console.log("i am done");
+    let data = this.props;
     let state = this.state;
     var Details = [];
-    this.status = state.username =="undefined" && state.password =="un@123" ? true : false
+    var status = state.username =="undefined" && state.password =="un@123" ? true : false
     let fetchData = { 
         method: 'GET', 
         headers: new Headers()
@@ -27,17 +28,15 @@ login = () => {
 
     fetch(url,fetchData)
         .then((resp) => resp.json())
-        .then(function(data){
-          console.log("data",(data));            
-          return data.map((i) => Details.push(i));
+        .then(function(resp){
+          console.log("data",(resp));            
+          data.onLogin(status ,resp);
           
         })
         .catch((error) =>{
           console.log(error);
         })
-    console.log("login",this.status);
-    console.log("Login",Details);
-    this.props.onLogin(this.status ,Details);
+
     
 }
 

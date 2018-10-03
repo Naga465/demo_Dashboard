@@ -13,43 +13,26 @@ class App extends React.Component{
     super(props);
     this.state = {
       logIn : false,
-      Details:[],
+      Details:"",
       header:"Welcome to Patient Monetering Dashboard"
     }
     
 
       }
 
-  loginClick = (status ,Details) =>{
+  loginClick = (status ,Det) =>{
 
-    this.setState(({logIn:status}));
-
-    // let fetchData = { 
-    //     method: 'GET', 
-    //     headers: new Headers()
-    // }
-
-    //   fetch(url,fetchData)
-    //     .then((resp) =>resp.json())
-    //     .then(function(data){
-    //       console.log("data",data[0]);            
-    //       return data.map((i) => Details.push(i));
-          
-
-    //     })
-    //     .catch((error) =>{
-    //       console.log(error);
-    //     })
-
-      this.setState(({Details:Details ,header:"Patient Management"}));
-      
-      }
+    console.log("onLogin",Det);
+    this.setState({Details:Det})
+    this.setState ({header:"Patient Management"});
+    this.setState({logIn:status});  
+    
+  }
   
 
   render() {
     let state = this.state;
-    console.log("i am",state.Details);
-    console.log(this.props);
+    console.log("state",state);
      return (
         <div className = "top" >
           <div className = "container">

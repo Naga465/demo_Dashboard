@@ -1,0 +1,44 @@
+.updateForm{
+    background-color: white;
+    width: 450px;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    top: 500%;
+    box-shadow: 5px 5px 5px 5px white;
+    box-shadow: 1.5em;
+    transform: translate(-50%, -50%);
+  }
+
+  .update_cont{
+    background:rgba(#cbd2d6,.9);
+    padding: 40px;
+    max-width:600px;
+    border-radius:4px;
+    box-shadow:0 4px 10px 4px rgba(#cbd2d6,.3);
+  }
+
+ label{
+    columns: #13232f;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    margin-bottom: 5px;
+    margin-right: 20px;
+    width:max-content;
+}
+
+.update_btn {
+    border:0;
+    outline:none;
+    border-radius:0;
+    margin-top:10px;
+    text-align: center;
+    font-size:18px;
+    font-weight:bold;
+    background:blue;
+    color:white;
+    -webkit-appearance: none;
+    width:max-content;
+    height:30px;
+    border-radius: 3px;
+  }
