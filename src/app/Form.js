@@ -13,36 +13,10 @@ class Form extends React.Component {
     }
 
 
-
-onClickUpdate =(index) =>{
-    let data = { name:this.state.name ,phone:this.state.phone };
-    console.log("update details",index);
-    const url = "http://localhost:3000/patients/"+index ;
-    console.log(url); 
-    let request ={
-        method: 'PUT', 
-        body: JSON.stringify(data), 
-        headers:{
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    }
-    
-.fetch(url, request)
-    .then((resp) => console.log(resp.status))
-
-    .catch((error) => {
-        console.error();
-    })
-
-
-    
-}
-
 render() {
         return (
                 <div className="updateForm">
-                <h1>Update Details</h1>
+                <h1>{this.props.tittle}</h1>
                     <div  className = "update_cont" >
                         <div className="user_cont">
                         <label>name</label>
@@ -56,7 +30,9 @@ render() {
                             <input type="password" onChange = {(event) => this.setState({phone:event.target.value})} name="password" id="pass"  required />
                         </label>
                         </div>
-                        <button className="update_btn"  onClick = {() => {this.onClickUpdate(this.props.index)}}>update</button>
+                        <button className="update_btn"  onClick = {() => {this.props.onClick(this.state)}}>update</button>
+                        <button className="cancel_btn"  onClick = {() => {this.props.cancelClick()}}>Cancel</button>
+                    
                     </div>
                     </div>
         )

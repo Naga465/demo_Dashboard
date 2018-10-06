@@ -25,7 +25,7 @@ login = () => {
         method: 'GET', 
         headers: new Headers()
     }
-
+    
     fetch(url,fetchData)
         .then((resp) => resp.json())
         .then(function(resp){

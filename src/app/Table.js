@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-var headers = [ "s.no","name","Phone"];
+var headers = [ "Name","Phone","Id"];
 
 const TableHead = (rowData) =>{
     console.log("props in table",rowData);
@@ -12,9 +12,17 @@ const TableHead = (rowData) =>{
             {/* <label> phone </label> */}
             </div>
             <Row values = {rowData}/>
+            {/* <button  onClick = {(event) =>{ this.nextPage(event)}} className = "page_nataion">nextPage</button> */}
+
         </div>
     )
 }
+
+// nextPage = (event)=>{
+//     console.log("next page",event);
+
+// }
+
 
 const Row = (info)=>{
     console.log("props in row",info);
@@ -82,7 +90,9 @@ class Table extends React.Component{
     }
     render(){
         return(
+            <div>
             <TableHead data = {this.props}/>
+            </div>
         )
     }
 }

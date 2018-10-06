@@ -1,11 +1,14 @@
 import React from "react"
 
-// create = () =>{
-//     console.log("i am create");
-// }
-const Search = () => (
+
+function onCreate(prop) {
+    console.log("oncreate clicked");
+    prop.onCreate();
+}
+
+const Search = (props) => (
    <div className = "search">
-            <button className="small_but">create</button>
+            <button className="small_but" onClick = {() => {onCreate(props)}}>create</button>
    </div>
 )
 export default Search
